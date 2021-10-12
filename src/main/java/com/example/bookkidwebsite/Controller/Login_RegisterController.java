@@ -6,39 +6,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 
+
 @Controller
 public class Login_RegisterController {
     @Autowired
     private CustomerRepository customerRepository;
 
-    @GetMapping("/login_register")
-    public String viewLoginPage(Model model) {
-        model.addAttribute("cutomer", new Customer());
-        return "Login_RegisterPage/login_register";
+
+    @GetMapping("/registration_page")
+    public String viewRegistrationPage(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "Login_RegisterPage/registration";
     }
 
-    @PostMapping("/process_register")
-    public String processRegister(@Valid  Customer customer, Errors errors, Model model) {
-        if(null!= errors && errors.getErrorCount()>0){
-            return "Login_RegisterPage/test";
-        }
-        else {
+    @GetMapping("/login_page")
+    public String viewLoginPage(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "Login_RegisterPage/login";
+    }
+
+    @PostMapping("/registration_page")
+    public String processRegister(Customer customer) {
+        if (customer.getCustomerPassword().equals(customer.getCustomerConfirmPassword())) {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             String encodePassword = encoder.encode(customer.getCustomerPassword());
             customer.setCustomerPassword(encodePassword);
             customerRepository.save(customer);
-            model.addAttribute("successMsg", "Sign up successfully!!");
-            return "Login_RegisterPage/test";
+            return "Login_RegisterPage/login";
         }
+        return "Login_RegisterPage/registration";
+
     }
 
-    @PostMapping("/loginpage")
+    @PostMapping("/login_page")
     public String loginPage(Customer customer) {
         Customer checkCustomer = customerRepository.findByEmail(customer.getCustomerEmail());
         if (checkCustomer != null) {
@@ -46,6 +53,8 @@ public class Login_RegisterController {
             if (encoder.matches(customer.getCustomerPassword(), checkCustomer.getCustomerPassword()))
                 return "/HomePage/index";
         }
-        return "Login_RegisterPage/test";
+        return "Login_RegisterPage/login";
     }
+
+
 }

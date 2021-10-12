@@ -1,8 +1,7 @@
 package com.example.bookkidwebsite.Entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -18,8 +17,7 @@ public class Customer implements Serializable {
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private Collection<Order> orders;
 
-    @NotNull(message = "Full Name can not be empty!")
-    @Min(value = 4,message = "Please enter your real name!")
+    @Size(min = 4, max = 40, message = "Please enter your full name!")
     @Column(name = "fullname")
     private String customerFullName;
 
@@ -32,12 +30,15 @@ public class Customer implements Serializable {
     @Column(name = "email")
     private String customerEmail;
 
-    @Min(value = 8, message = "Your password not strong!")
+    @Size(min = 8, message = "Your password must be at least 8 characters!")
     @Column(name = "password")
     private String customerPassword;
 
     @Column(name = "is_deleted")
     private Boolean customerIsDeleted;
+
+    @Column(name = "confirm_password")
+    private String customerConfirmPassword;
 
     public Boolean getCustomerIsDeleted() {
         return customerIsDeleted;
@@ -93,6 +94,14 @@ public class Customer implements Serializable {
 
     public void setCustomerPassword(String customerPassword) {
         this.customerPassword = customerPassword;
+    }
+
+    public String getCustomerConfirmPassword() {
+        return customerConfirmPassword;
+    }
+
+    public void setCustomerConfirmPassword(String customerConfirmPassword) {
+        this.customerConfirmPassword = customerConfirmPassword;
     }
 
     public Customer() {

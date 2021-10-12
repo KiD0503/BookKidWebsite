@@ -1,23 +1,17 @@
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
-
-sign_up_btn.addEventListener("click", () => {
-  container.classList.add("sign-up-mode");
-});
-
-sign_in_btn.addEventListener("click", () => {
-  container.classList.remove("sign-up-mode");
-});
-
-var x = true;
-function showFunction(){
-  if(x){
-    document.getElementById("hidepass").type = "text";
-    x = false;
+function showPasswordFunction() {
+  var y = document.getElementById("password");
+  if (y.type === "password") {
+    y.type = "text";
+  } else {
+    y.type = "password";
   }
-  else{
-    document.getElementById("hidepass").type = "password";
-    x = true;
+}
+
+function showConfirmPasswordFunction() {
+  var x = document.getElementById("confirm_password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
   }
 }
