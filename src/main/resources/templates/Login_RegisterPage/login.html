@@ -45,7 +45,7 @@
                     </label>
                     <div class="clear"></div>
                 </div>
-                <input type="submit" value="SIGN-IN">
+                <input onclick="validation()" type="submit" value="SIGN-IN">
             </form>
             <p>Don't have an Account? <a th:href="@{/registration_page}">SignUp Now!</a></p>
         </div>
@@ -65,6 +65,14 @@
     </ul>
 </div>
 <!-- //main -->
+<script type="text/javascript">
+function validation(){
+    var message = "[[${validate}]]";
+    if(message=='success'){
+    alert('hihi');
+    }
+}
+</script>
 
 </body>
 </html>

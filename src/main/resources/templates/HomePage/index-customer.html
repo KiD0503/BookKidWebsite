@@ -94,7 +94,284 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
-                            <a th:href="@{/login_page}"><i class="fa fa-user"></i>Account</a>
+                            <!-- The Button that opens the modal -->
+                            <button id="sizeChart-button"
+                                    onclick="document.getElementById('id01').style.display='block'"
+                                    class="w3-button buttstyle">Account
+                            </button>
+
+                            <!-- Inside the Modal -->
+                            <div id="id01" class="w3-modal sizeGuide">
+
+                                <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+                                    <header class="w3-container sizeguide-header">
+   <span onclick="document.getElementById('id01').style.display='none'"
+         class="w3-button w3-display-topright sizeguide-close">&times;</span>
+                                    </header>
+
+                                    <div class="w3-bar w3-border-bottom">
+                                        <button class="tablink tablink-buttons w3-bar-item w3-button"
+                                                onclick="openCity(event, 'yourself')">Profile
+                                        </button>
+                                        <button class="tablink tablink-buttons w3-bar-item w3-button"
+                                                onclick="openCity(event, 'product')">Setting
+                                        </button>
+                                    </div>
+
+                                    <div id="yourself" class="w3-container city">
+                                        <div class="w3-container">
+                                            <div class="w3-container">
+                                                <h3 class="guide-title">Your information</h3>
+                                                <div class="guide-section">
+                                                    <!-- No  -->
+                                                    <p>Email: </p>
+                                                    <p>Password: </p>
+                                                </div>
+                                                <h3 class="guide-title"></h3>
+
+                                                <div class="sizechart-style">
+                                                    <button onclick="sizechart_function('measure-yourself-chart')"
+                                                            class="sizechart-style w3-button w3-block w3-left-align">
+                                                    </button>
+                                                </div>
+
+                                                <div id="measure-yourself-chart" class="w3-hide">
+                                                    <div class="w3-bar w3-border-bottom">
+                                                        <button class="tablink-yourself tablink-buttons w3-bar-item w3-button"
+                                                                onclick="openCity_yourself(event, 'yourselfinches')">
+
+                                                        </button>
+                                                        <button class="tablink-yourself tablink-buttons w3-bar-item w3-button"
+                                                                onclick="openCity_yourself(event, 'yourselfcentimeters')">
+
+                                                        </button>
+                                                    </div>
+
+                                                    <div id="yourselfinches" class="w3-container city-yourself">
+                                                        <div><br> <!-- INCHES -->
+                                                            <table class="w3-table w3-striped">
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </table>
+                                                            <p><small></small>
+                                                            </p>
+                                                            <p><a href="#guide-top"></a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div id="yourselfcentimeters" class="w3-container city-yourself">
+                                                        <div><!-- CENTIMETERS -->
+                                                            <br>
+                                                            <table class="w3-table w3-striped">
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </table>
+                                                            <p><small></small>
+                                                            </p>
+                                                            <p>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="product" class="w3-container city">
+                                        <div class="w3-container">
+                                            <div class="w3-container">
+                                                <h3 class="guide-title"></h3>
+                                                <p></p>
+                                                <div class="guide-section">
+                                                    <center>
+                                                    </center>
+                                                    <p><strong></strong></p>
+                                                    <p></p>
+                                                    <p><strong></strong></p>
+                                                    <p></p>
+                                                    <p><strong></strong></p>
+                                                    <p></p>
+                                                </div>
+                                                <h3 class="guide-title"></h3>
+
+                                                <div class="sizechart-style">
+                                                    <button onclick="sizechart_function('find-size-chart')"
+                                                            class="w3-button w3-block w3-left-align sizechart-style">
+
+                                                    </button>
+                                                </div>
+
+                                                <div id="find-size-chart" class="w3-hide">
+                                                    <div class="w3-bar w3-border-bottom">
+                                                        <button class="tablink-product tablink-buttons w3-bar-item w3-button"
+                                                                onclick="openCity_product(event, 'productinches')">
+                                                            Inches
+                                                        </button>
+                                                        <button class="tablink-product tablink-buttons w3-bar-item w3-button"
+                                                                onclick="openCity_product(event, 'productcentimeters')">
+                                                            Centimeters
+                                                        </button>
+                                                    </div>
+
+                                                    <div id="productinches" class="w3-container city-product">
+                                                        <div> <!-- INCHES -->
+                                                            <p></p>
+                                                            <table class="w3-table w3-striped">
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </table>
+                                                            <p><small></small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div id="productcentimeters" class="w3-container city-product">
+                                                        <div><!-- CENTIMETERS -->
+                                                            <p></p>
+                                                            <table class="w3-table w3-striped">
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b></b></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </table>
+                                                            <p><small></small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </div>
+                                        </div>
+                                        <button id="sizeguide-close-button" class="w3-button sizeguide-close w3-right"
+                                                onclick="document.getElementById('id01').style.display='none'">Close
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,82 @@
+/* Hide the modal by default */
+.sizeGuide .city {
+    display:none;
+    text-align:right;
+}
+
+.w3-modal {
+    padding-top: 30px!important;
+    z-index: 9999!important;
+}
+.sizeGuide .w3-container {
+    padding-left: 1%;
+    padding-right: 1%;
+    text-align: left;
+}
+
+/*Styling the Size Chart Button that opens the Modal*/
+.buttstyle {
+    font-family: "Karla", sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    line-height: 1em;
+    color: grey;
+    background-color: transparent;
+    white-space: normal!important;
+}
+.buttstyle:hover {
+    color: grey;
+    background-color: lightgrey;
+}
+
+/* INSIDE THE MODAL */
+
+.sizeguide-header {
+    font-family: "Karla", sans-serif;
+    font-size:25px;
+    font-weight:400;
+    padding: 1.5%;
+    padding-left: 2%;
+    color: white;
+    background-color: black;
+    text-align: left;
+}
+.sizeguide-close {
+    font-family: "Karla", sans-serif;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: white;
+    background-color: black;
+}
+.tablink-buttons {
+    text-transform: uppercase;
+    font-family: "Karla", sans-serif;
+}
+
+.guide-title {
+    padding-top: 1.5%!important;
+}
+.guide-section {
+    color: #616161;
+    background-color: #e3e3e3!important;
+    padding: 3.5%!important;
+}
+
+.sizechart-style {
+    font-size: 20px;
+    font-family: "Karla", sans-serif;
+    background-color: #507F99;
+    color: white;
+    text-transform: uppercase;
+}
+.city-yourself, .city-product {
+    overflow: auto!important;
+}
+.myBox {
+    width: 200px;
+    height: 300px;
+    object-fit: cover!important;
+}
+	

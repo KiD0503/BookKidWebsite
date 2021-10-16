@@ -40,6 +40,8 @@ public class Customer implements Serializable {
     @Column(name = "confirm_password")
     private String customerConfirmPassword;
 
+
+
     public Boolean getCustomerIsDeleted() {
         return customerIsDeleted;
     }

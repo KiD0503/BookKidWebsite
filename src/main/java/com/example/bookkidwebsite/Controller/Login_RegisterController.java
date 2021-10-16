@@ -6,12 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.validation.Valid;
 
 
 @Controller
@@ -46,12 +43,13 @@ public class Login_RegisterController {
     }
 
     @PostMapping("/login_page")
-    public String loginPage(Customer customer) {
+    public String loginPage(Customer customer, Model model) {
         Customer checkCustomer = customerRepository.findByEmail(customer.getCustomerEmail());
         if (checkCustomer != null) {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             if (encoder.matches(customer.getCustomerPassword(), checkCustomer.getCustomerPassword()))
-                return "/HomePage/index";
+                return "/HomePage/index-customer";
+            model.addAttribute("validate", "success");
         }
         return "Login_RegisterPage/login";
     }

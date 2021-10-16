@@ -10,6 +10,10 @@ public class HomeController {
     public String index(){
         return "HomePage/index";
     }
+    @GetMapping("/nguyenvanhieu")
+    public String index_customer(){
+        return "HomePage/index-customer";
+    }
 
     @GetMapping("/shop-grid")
     public String viewShopGridPage() {
